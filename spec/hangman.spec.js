@@ -23,17 +23,19 @@ describe("hangman", () => {
   it("exists as an object", () => {
     expect(typeof hangman).toBe("object");
   });
-  
   it("chooses a random word", (done) => {
-     hangman.chooseWord().then((word) => {
+    hangman.chooseWord().then((word) => {
       expect(typeof word).toBe("string"); 
       done();
     });
   });
-  
   describe("guess letter", () => {
     it("only allows single letters", () => {
-      
+      const letterErrorMsg = "Exactly 1 letter per guess";
+      expect(() => hangman.guessLetter("")).toThrowError(letterErrorMsg);
+      expect(() => hangman.guessLetter("ba")).toThrowError(letterErrorMsg);
+      expect(()=>hangman.guessLetter(1)).toThrowError(letterErrorMsg);
+      expect(()=>hangman.guessLetter(null)).toThrowError(letterErrorMsg);
     });
   });
 });

@@ -21,12 +21,13 @@ Hangman.prototype.chooseWord = function chooseWord(){
   }).then((text)=>{
     const words = text.split(/\n/);
     const randomIndex = Math.floor(words.length * Math.random());
-    return words[randomIndex].trim();
+    return words[randomIndex].trim().toLowerCase();
   });
 }
 
 Hangman.prototype.guessLetter = function guessLetter(letter){
-  if(letter.length !== 1) throw new Error("Exactly 1 letter per guess");
+  if(letter.length !== 1 || letter.matches(/[a-zA-Z]/)) throw new Error("Exactly 1 letter per guess");
+  const normalLetter = letter.toLowerCase();
 }
 
 module.exports = Hangman;
