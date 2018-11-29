@@ -23,10 +23,17 @@ describe("hangman", () => {
   it("exists as an object", () => {
     expect(typeof hangman).toBe("object");
   });
+  
   it("chooses a random word", (done) => {
-    return hangman.chooseWord().then((word) => {
+     hangman.chooseWord().then((word) => {
       expect(typeof word).toBe("string"); 
       done();
+    });
+  });
+  
+  describe("guess letter", () => {
+    it("only allows single letters", () => {
+      
     });
   });
 });
