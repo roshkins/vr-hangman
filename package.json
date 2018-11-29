@@ -8,7 +8,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "test": "jasmine test/**"
+    "test": "jasmine"
   },
   "dependencies": {
     "express": "^4.16.3",
