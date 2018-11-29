@@ -1,5 +1,17 @@
-/* globals spyOn */
+/* globals spyOn, fetch */
 const Hangman = require('../public/hangman.js');
+fetch = function(){
+  return `aa
+aah
+aahed
+aahing
+aahs
+aal
+aalii
+aaliis
+aals
+aardvark`;
+};
 let hangman = null;
 describe("hangman", () => {
   beforeEach(()=>{
@@ -8,9 +20,7 @@ describe("hangman", () => {
   it("exists as an object", () => {
     expect(typeof hangman).toBe("object");
   });
-  
-  it("fetches from the correct endpoint", ()=> {
-    const fetchSpy = spyOn(window, "fetch");
-    expect(fetchSpy);
+  it("chooses a random word", ()=> {
+    expect(typeof hangman.chooseWord()).toBe("string"); 
   });
 });
