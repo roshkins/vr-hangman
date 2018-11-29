@@ -35,7 +35,9 @@ I'll use https://www.npmjs.com/package/aframe-gui for the UI
 
 The UI will be a bunch of letters A-Z floating alphabetically in rows. As letters are used they will be greyed out. There will be spaces for the words floating about the keyboard. Above that, a list of incorrect guesses. Above that, a progress bar that decrements after every incorrect guess, and displays how many guesses are left.
 
-After that works, I'll put a collection of 3d-objects to represent the 6 guesses next to the count, hidden after every incorrect guess.
+After that works, I'll put a collection of 3d-objects to represent the 6 guesses next to the count, hidden after every incorrect guess. They will be dolphins. I'll go to the water take a 360 photo of the ocean. 
+
+When you guess wrong, the dolphins will fall into the water. We'll grab a CC0 sound clip of a splash. We'll take a 15 second clip of "under the sea" and play it on loop for background music. I'll use "howlerjs" to play the music.
 
 If I get this far I'll brainstorm how to add some of the other nice-to-haves.
 
