@@ -1,7 +1,7 @@
 # My development plan
 
 ## Goals
-My first goal is to create a working command-line version. I have 4 objectives
+My first goal is to create a working hangman class version. I have 4 objectives
 
 
 *  The length of the secret word is displayed to the guesser (e.g. as a set of underscores)
@@ -16,9 +16,17 @@ I'll install jasmine to run tests, so I can unit test as I build out the hangman
 
 I'll create a `hangman.js` file for handling hangman logic. This way I can use the same hangman engine for the cli interface and the VR interface.
 
-I'll do TDD for each of the goals, ensuring all the logic exists. I'll add some of the easy nice-to-haves.
+I'll do TDD for each of the goals, ensuring all the logic exists. I'll add some of the easy nice-to-haves after I have VR working.
 
-After hangman.js is written and tested, I'll connect the CLI in `cli.js` to `hangman.js`. This will simply wrap input to each of the hangman functions.
+After hangman.js is written and tested, I'll connect the web-vr front-end to `hangman.js`. 
+
+This will start with it being a generic background, and having text being overlayed. 
+
+The UI will be a bunch of letters A-Z floating alphabetically in rows. As letters are used they will be greyed out. There will be spaces for the words floating about the keyboard. Above that, a list of incorrect guesses. Above that, a count of remaining guesses. 
+
+After that works, I'll put a collection of 3d-objects 
+
+
 
 
 
