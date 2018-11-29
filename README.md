@@ -1,14 +1,23 @@
 # My development plan
 
 ## Goals
-My first goal is to create a working hangman class version. I have 4 objectives
+My first goal is to create a working hangman class version. I have these objectives
 
+### Game Rules
+* At the start of the game the computer/secret-keeper will choose a dictionary word
+* The guesser loses the game if they guess 6 letters that are not in the secret word
+* The guesser wins the game if they guess all letters in the secret word correctly and have not already lost the game per the conditions above
+
+### User Interface
 
 *  The length of the secret word is displayed to the guesser (e.g. as a set of underscores)
 * As the guesser makes correct guesses, occurrences of the guessed letter in the word are shown while unknown letters are still hidden 
 * The number of guesses remaining is displayed
 * A list of incorrect guesses are displayed
+
+### Implementation
 * Your program must retrieve a dictionary list of words from the word dictionary REST API provided (see attached documentation)
+* You can choose whichever combination of programming languages, tools, frameworks, and libraries you find appropriate within reason (e.g. you can’t use a game framework that implements Hangman)
 
 
 ## Process
@@ -22,9 +31,13 @@ After hangman.js is written and tested, I'll connect the web-vr front-end to `ha
 
 This will start with it being a generic background, and having text being overlayed. 
 
-The UI will be a bunch of letters A-Z floating alphabetically in rows. As letters are used they will be greyed out. There will be spaces for the words floating about the keyboard. Above that, a list of incorrect guesses. Above that, a count of remaining guesses. 
+I'll use https://www.npmjs.com/package/aframe-gui for the UI
 
-After that works, I'll put a collection of 3d-objects 
+The UI will be a bunch of letters A-Z floating alphabetically in rows. As letters are used they will be greyed out. There will be spaces for the words floating about the keyboard. Above that, a list of incorrect guesses. Above that, a progress bar that decrements after every incorrect guess, and displays how many guesses are left.
+
+After that works, I'll put a collection of 3d-objects to represent the 6 guesses next to the count, hidden after every incorrect guess.
+
+If I get this far I'll brainstorm how to add some of the other nice-to-haves.
 
 
 
