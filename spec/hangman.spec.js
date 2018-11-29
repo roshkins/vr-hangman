@@ -24,7 +24,7 @@ aals
 aardvark`
       });
     };
-    Hangman.loadWord().then((hangman) => {
+    Hangman().then((hangman) => {
       expect(typeof hangman.word).toBe("string"); 
       done();
     });
@@ -44,6 +44,9 @@ aardvark`
     it("doesn't let you guess if the game is over", () => {
       hangman.gameOver = true;
       expect(() => hangman.guessLetter("a")).toThrowError("Can't play after game is over");
+    });
+    
+    it("", () => {
     });
   });
 });
