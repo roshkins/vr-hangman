@@ -26,8 +26,9 @@ Hangman.prototype.chooseWord = function chooseWord(){
 }
 
 Hangman.prototype.guessLetter = function guessLetter(letter){
-  if(letter.length !== 1 || letter.matches(/[a-zA-Z]/)) throw new Error("Exactly 1 letter per guess");
-  const normalLetter = letter.toLowerCase();
+  if(!letter || letter.length !== 1 || !letter.matches(/[a-zA-Z]/)) throw new Error("Exactly 1 letter per guess");
+  const normalizedLetter = letter.toLowerCase();
+  
 }
 
 module.exports = Hangman;

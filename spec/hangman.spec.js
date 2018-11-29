@@ -34,8 +34,14 @@ describe("hangman", () => {
       const letterErrorMsg = "Exactly 1 letter per guess";
       expect(() => hangman.guessLetter("")).toThrowError(letterErrorMsg);
       expect(() => hangman.guessLetter("ba")).toThrowError(letterErrorMsg);
-      expect(()=>hangman.guessLetter(1)).toThrowError(letterErrorMsg);
-      expect(()=>hangman.guessLetter(null)).toThrowError(letterErrorMsg);
+      expect(() => hangman.guessLetter(1)).toThrowError(letterErrorMsg);
+      expect(() => hangman.guessLetter(null)).toThrowError(letterErrorMsg);
+      expect(() => hangman.guessLetter("A")).not.toThrowError(letterErrorMsg);
+      expect(() => hangman.guessLetter("z")).not.toThrowError(letterErrorMsg);
+    });
+    it("doesn't let you guess if the game is over", () => {
+      hangman.gameOver = true;
+      expect(() => hangman.guessLetter("")).toThrowError(letterErrorMsg);
     });
   });
 });
