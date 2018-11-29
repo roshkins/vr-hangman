@@ -1,7 +1,9 @@
 /* globals spyOn, fetch */
 const Hangman = require('../public/hangman.js');
 fetch = function(){
-  return `aa
+  return Promise.resolve({
+    ok: true, 
+    text: () => `aa
 aah
 aahed
 aahing
@@ -10,7 +12,8 @@ aal
 aalii
 aaliis
 aals
-aardvark`;
+aardvark`
+  });
 };
 let hangman = null;
 describe("hangman", () => {
@@ -20,7 +23,10 @@ describe("hangman", () => {
   it("exists as an object", () => {
     expect(typeof hangman).toBe("object");
   });
-  it("chooses a random word", ()=> {
-    expect(typeof hangman.chooseWord()).toBe("string"); 
+  it("chooses a random word", (done) => {
+    return hangman.chooseWord().then((word) => {
+      expect(typeof word).toBe("string"); 
+      done();
+    });
   });
 });

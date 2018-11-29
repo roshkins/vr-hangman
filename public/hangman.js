@@ -7,6 +7,16 @@ function Hangman() {
   this.gameOver = false;
 }
 Hangman.prototype.chooseWord = function chooseWord(){
-  fetch("http://app.linkedin-reach.io/words");
+  return fetch("http://app.linkedin-reach.io/words").then(response => {
+    if(response.ok) {
+      return response.text();
+    } else {
+      throw new Error("Not a 200 response");
+    }
+  }).then((text)=>{
+    const words = text.split(/\n/);
+    const randomIndex = Math.floor(words.length * Math.random());
+    return words[randomIndex].trim();
+  });
 }
 module.exports = Hangman;
