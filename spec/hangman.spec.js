@@ -50,3 +50,4 @@ aardvark`
       expect(hangman.incorrectLetters.has("a")).toBe(false);
     });
   });
+});

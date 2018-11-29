@@ -28,6 +28,10 @@ hangman.prototype.guessLetter = function guessLetter(letter){
   if(!letter || letter.length !== 1 || !letter.match(/[a-zA-Z]/)) throw new Error("Exactly 1 letter per guess");
   if(this.gameOver) throw new Error("Can't play after game is over");
   const normalizedLetter = letter.toLowerCase();
-  if(this.letters.has(normalizedLetter)){}
+  if(this.letters.has(normalizedLetter)){
+    this.correctLetters.add(normalizedLetter);
+  } else {
+    this.incorrectLetters.add(normalizedLetter);
+  }
 }
 module.exports = Hangman;
