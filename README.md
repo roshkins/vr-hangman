@@ -1,3 +1,29 @@
+# My development plan
+
+## Goals
+My first goal is to create a working command-line version. I have 4 objectives
+
+
+*  The length of the secret word is displayed to the guesser (e.g. as a set of underscores)
+* As the guesser makes correct guesses, occurrences of the guessed letter in the word are shown while unknown letters are still hidden 
+* The number of guesses remaining is displayed
+* A list of incorrect guesses are displayed
+* Your program must retrieve a dictionary list of words from the word dictionary REST API provided (see attached documentation)
+
+
+## Process
+I'll install jasmine to run tests, so I can unit test as I build out the hangman engine
+
+I'll create a `hangman.js` file for handling hangman logic. This way I can use the same hangman engine for the cli interface and the VR interface.
+
+I'll do TDD for each of the goals, ensuring all the logic exists. I'll add some of the easy nice-to-haves.
+
+After hangman.js is written and tested, I'll connect the CLI in `cli.js` to `hangman.js`. This will simply wrap input to each of the hangman functions.
+
+
+
+# Everything Below is from Glitch
+
 Welcome to Glitch
 =================
 
