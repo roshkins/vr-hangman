@@ -44,10 +44,17 @@ aardvark`
       hangman.gameOver = true;
       expect(() => hangman.guessLetter("a")).toThrowError("Can't play after game is over");
     });
-    it("verifies a correct letter", () => {
+    it("adds a correct letter to the correct letters set", () => {
       hangman.guessLetter("a");
       expect(hangman.correctLetters.has("a")).toBe(true);
-      expect(hangman.incorrectLetters.has("a")).toBe(false);
+    });
+    it("doesn't add a correct letter to the incorrect letter set", () => {
+    });
+    it("doesn't remove a guess if the guess is correct", () => {
+    });
+    it("removes a geuss if the guess is incorrect", () => {
+    });
+    it("doesn't remove a guess if the guess is incorrect and already removed", () => {
     });
   });
 });
