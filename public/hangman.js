@@ -27,6 +27,10 @@ hangman.prototype.guessLetter = function guessLetter(letter){
   const normalizedLetter = letter.toLowerCase();
   if(this.letters.has(normalizedLetter)){
     this.correctLetters.add(normalizedLetter);
+    if(Array.from(this.correctLetters).length === Array.from(this.letters).length) {
+      this.hasWon = true;
+      this.gameOver = true;
+    }
   } else {
     if(!this.incorrectLetters.has(normalizedLetter)) 
     {

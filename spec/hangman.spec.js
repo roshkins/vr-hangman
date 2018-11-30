@@ -58,9 +58,9 @@ aardvark`
         expect(hangman.guessesRemaining).toBe(6);
       });
       it("wins the game if all letters are correctly guessed", () => {
-        ["e", "x", "a", "m", "p", "l", "e"].forEach((letter) => hangman.guessLetter(letter));
+        ["e", "x", "m", "p", "l"].forEach((letter) => hangman.guessLetter(letter));
         expect(hangman.gameOver).toBe(true);
-        expect
+        expect(hangman.hasWon).toBe(true);
       });
     });
     describe("grades incorrect guesses", () => {
@@ -87,6 +87,7 @@ aardvark`
         hangman.guessLetter("t");
         hangman.guessLetter("y");
         expect(hangman.gameOver).toBe(true);
+        expect(hangman.hasWon).toBe(false);
       });
     });
   });
