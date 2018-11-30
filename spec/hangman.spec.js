@@ -57,6 +57,11 @@ aardvark`
       it("doesn't remove a guess if the guess is correct", () => {
         expect(hangman.guessesRemaining).toBe(6);
       });
+      it("wins the game if all letters are correctly guessed", () => {
+        ["e", "x", "a", "m", "p", "l", "e"].forEach((letter) => hangman.guessLetter(letter));
+        expect(hangman.gameOver).toBe(true);
+        expect
+      });
     });
     describe("grades incorrect guesses", () => {
       beforeEach(() => {

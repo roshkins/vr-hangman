@@ -38,6 +38,18 @@ hangman.prototype.guessLetter = function guessLetter(letter){
 }
 
 hangman.prototype.getCorrectLetters = function getCorrectLetters() {
-  
+  return this.correctLetters;
+}
+hangman.prototype.getIncorrectLetters = function getIncorrectLetters() {
+  return this.incorrectLetters;
+}
+hangman.prototype.getGuessesRemaining = function getGuessesRemaining() {
+  return this.guessesRemaining;
+}
+hangman.prototype.getHasWon = function getHasWon() {
+  return this.hasWon;
+}
+hangman.prototype.getHasLost = function getHasLost() {
+  return !this.hasWon && this.gameOver;
 }
 module.exports = Hangman;

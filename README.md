@@ -46,7 +46,7 @@ The UI will be a bunch of letters A-Z floating alphabetically in rows. As letter
 
 After that works, I'll make the sky a 360 image of the ocean (my photograph), with water underneath. The goal will be to not get dunked into the ocean! Each wrong guess will bring you closer to your doom, vertically.
 
-I'll use howler.js to give "thwack" sound effects when you guess wrong, a splash if you 
+I'll use howler.js to give "thwack" sound effects when you guess wrong, a splash if you fall in, and [background music](https://www.freestockmusic.com/international-production-music/free-international-stock-music-jamaica-girl/)
 
 
 If I get this far I'll brainstorm how to add some of the other nice-to-haves.
