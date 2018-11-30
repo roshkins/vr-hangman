@@ -21,6 +21,7 @@ function Hangman(){
   });
 }
 const hangman = Hangman.hangman;
+//I use named functions so they show up in error traces
 hangman.prototype.guessLetter = function guessLetter(letter){
   if(!letter || letter.length !== 1 || !letter.match(/[a-zA-Z]/)) throw new Error("Exactly 1 letter per guess");
   if(this.gameOver) throw new Error("Can't play after game is over");
