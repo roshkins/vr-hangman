@@ -43,7 +43,7 @@ hangman.prototype.guessLetter = function guessLetter(letter){
   return {
   };
 }
-  hangman.prototype.getCorrectLetters = function getDisplayedWord(){
+  hangman.prototype.getDisplayedWord = function getDisplayedWord(){
     
   }
 hangman.prototype.getCorrectLetters = function getCorrectLetters() {

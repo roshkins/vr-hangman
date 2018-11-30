@@ -91,6 +91,11 @@ aardvark`
       });
     });
     
-      describe("displays correct guesses as a word", () => {});
+      describe("displays correct guesses as a word", () => {
+        it("returns an array of length word of underscores when no guesses have occured", () => {
+          expect(hangman.getDisplayedWord()).;
+        });
+      
+      });
   });
 });
