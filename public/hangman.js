@@ -41,10 +41,11 @@ hangman.prototype.guessLetter = function guessLetter(letter){
     if(this.guessesRemaining === 0) this.gameOver = true;
   }
   return {
+    displayedWord: this.getDisplayedWord()
   };
 }
   hangman.prototype.getDisplayedWord = function getDisplayedWord(){
-    
+    return this.word.split("").map(letter => this.correctLetters.has(letter) ? letter : "_");
   }
 hangman.prototype.getCorrectLetters = function getCorrectLetters() {
   return this.correctLetters;

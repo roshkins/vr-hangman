@@ -90,12 +90,18 @@ aardvark`
         expect(hangman.hasWon).toBe(false);
       });
     });
-    
-      describe("displays correct guesses as a word", () => {
-        it("returns an array of length word of underscores when no guesses have occured", () => {
-          expect(hangman.getDisplayedWord()).toBe(["_", "_", "_", "_", "_", "_", "_"]);
-        });
-      
+    describe("displays correct guesses as a word", () => {
+      it("returns an array of length word of underscores when no guesses have occured", () => {
+        expect(hangman.getDisplayedWord()).toEqual(["_", "_", "_", "_", "_", "_", "_"]);
       });
+      it("shows a correct guess", () => {
+        hangman.guessLetter("e");
+        expect(hangman.getDisplayedWord()).toEqual(["e", "_", "_", "_", "_", "_", "e"]);
+      });
+      it("doesn't show an incorrect guess", () => {
+        hangman.guessLetter("y");
+        expect(hangman.getDisplayedWord()).toEqual(["_", "_", "_", "_", "_", "_", "_"]);
+      });
+    });
   });
 });
