@@ -40,8 +40,12 @@ hangman.prototype.guessLetter = function guessLetter(letter){
     }
     if(this.guessesRemaining === 0) this.gameOver = true;
   }
+  return {
+  };
 }
-
+  hangman.prototype.getCorrectLetters = function getDisplayedWord(){
+    
+  }
 hangman.prototype.getCorrectLetters = function getCorrectLetters() {
   return this.correctLetters;
 }
