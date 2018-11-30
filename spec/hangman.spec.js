@@ -44,17 +44,35 @@ aardvark`
       hangman.gameOver = true;
       expect(() => hangman.guessLetter("a")).toThrowError("Can't play after game is over");
     });
-    it("adds a correct letter to the correct letters set", () => {
-      hangman.guessLetter("a");
-      expect(hangman.correctLetters.has("a")).toBe(true);
+    describe("grades correct guesses", () => {
+      beforeEach(() => {
+        hangman.guessLetter("a");
+      });
+      it("adds a correct letter to the correct letters set", () => {
+        expect(hangman.correctLetters.has("a")).toBe(true);
+      });
+      it("doesn't add a correct letter to the incorrect letter set", () => {
+        expect(hangman.incorrectLetters.has("a")).not.toBe(true);
+      });
+      it("doesn't remove a guess if the guess is correct", () => {
+        expect(hangman.guessesRemaining).toBe(6);
+      });
     });
-    it("doesn't add a correct letter to the incorrect letter set", () => {
-    });
-    it("doesn't remove a guess if the guess is correct", () => {
-    });
-    it("removes a geuss if the guess is incorrect", () => {
-    });
-    it("doesn't remove a guess if the guess is incorrect and already removed", () => {
+    describe("grades incorrect guesses", () => {
+      beforeEach(() => {
+        hangman.guessLetter("z");
+      });
+      it("doesn't an incorrect letter to the correct letters set", () => {
+        expect(hangman.correctLetters.has("z")).not.toBe(true);
+      });
+      it("adds an incorrect letter to the incorrect letter set", () => {
+        expect(hangman.incorrectLetters.has("z")).toBe(true);
+      });
+      it("removes a guess if it is incorrect", () => {
+        expect(hangman.gu
+      });
+      it("doesn't remove a guess if it is incorrect and already removed", () => {
+      });
     });
   });
 });
