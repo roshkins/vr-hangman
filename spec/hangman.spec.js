@@ -90,5 +90,7 @@ aardvark`
         expect(hangman.hasWon).toBe(false);
       });
     });
+    
+      describe("displays correct guesses as a word", () => {});
   });
 });
