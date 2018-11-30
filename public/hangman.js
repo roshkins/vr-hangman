@@ -41,25 +41,14 @@ hangman.prototype.guessLetter = function guessLetter(letter){
     if(this.guessesRemaining === 0) this.gameOver = true;
   }
   return {
-    displayedWord: this.getDisplayedWord()
+    displayedWord: this.getDisplayedWord(),
+    incorrectGuesses: Array.from(this.incorrectLetters),
+    guessesRemaining: this.guessesRemaining,
+    hasWon: this.hasWon,
+    hasLost: this.gameOver && !this.hasWon
   };
 }
   hangman.prototype.getDisplayedWord = function getDisplayedWord(){
     return this.word.split("").map(letter => this.correctLetters.has(letter) ? letter : "_");
   }
-hangman.prototype.getCorrectLetters = function getCorrectLetters() {
-  return this.correctLetters;
-}
-hangman.prototype.getIncorrectLetters = function getIncorrectLetters() {
-  return this.incorrectLetters;
-}
-hangman.prototype.getGuessesRemaining = function getGuessesRemaining() {
-  return this.guessesRemaining;
-}
-hangman.prototype.getHasWon = function getHasWon() {
-  return this.hasWon;
-}
-hangman.prototype.getHasLost = function getHasLost() {
-  return !this.hasWon && this.gameOver;
-}
 module.exports = Hangman;
