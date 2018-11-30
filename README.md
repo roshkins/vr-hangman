@@ -40,11 +40,14 @@ I'll use https://www.npmjs.com/package/aframe-gui for the UI
 
 The UI will be a bunch of letters A-Z floating alphabetically in rows. As letters are used they will be greyed out. There will be spaces for the words floating about the keyboard. Above that, a list of incorrect guesses. Above that, a progress bar that decrements after every incorrect guess, and displays how many guesses are left.
 
-After that works, I'll put a collection of 3d-objects to represent the 6 guesses next to the count, hidden after every incorrect guess. They will be dolphin CC0 models. I'll go to the water take a 360 photo of the ocean. 
+~~After that works, I'll put a collection of 3d-objects to represent the 6 guesses next to the count, hidden after every incorrect guess. They will be dolphin CC0 models. I'll go to the water take a 360 photo of the ocean.~~
 
-When you guess wrong, the dolphins will fall into the water. We'll grab a CC0 sound clip of a splash. We'll take a 15 second clip of "under the sea" and play it on loop for background music. I'll use "howlerjs" to play the music.
+~~When you guess wrong, the dolphins will fall into the water. We'll grab a CC0 sound clip of a splash. We'll take a 15 second clip of "under the sea" and play it on loop for background music. I'll use "howlerjs" to play the music.~~
 
-The goal will be to take a picture with the most number of dolphins.
+After that works, I'll make the sky a 360 image of the ocean (my photograph), with water underneath. The goal will be to not get dunked into the ocean! Each wrong guess will bring you closer to your doom, vertically.
+
+I'll use howler.js to give "thwack" sound effects when you guess wrong, a splash if you 
+
 
 If I get this far I'll brainstorm how to add some of the other nice-to-haves.
 
