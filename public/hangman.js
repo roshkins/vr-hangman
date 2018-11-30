@@ -31,10 +31,13 @@ hangman.prototype.guessLetter = function guessLetter(letter){
     if(!this.incorrectLetters.has(normalizedLetter)) 
     {
       this.guessesRemaining--;
-    } else {
       this.incorrectLetters.add(normalizedLetter);
     }
     if(this.guessesRemaining === 0) this.gameOver = true;
   }
+}
+
+hangman.prototype.getCorrectLetters = function getCorrectLetters() {
+  
 }
 module.exports = Hangman;
