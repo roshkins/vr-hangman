@@ -7,7 +7,6 @@ Hangman.hangman = function hangman(word) {
   this.hasWon = false;
   this.gameOver = false;
 }
-
 function Hangman(){
   return fetch("http://app.linkedin-reach.io/words").then(response => {
     if(response.ok) {
@@ -21,9 +20,7 @@ function Hangman(){
     return new Hangman.hangman(words[randomIndex].trim().toLowerCase());
   });
 }
-
 const hangman = Hangman.hangman;
-
 hangman.prototype.guessLetter = function guessLetter(letter){
   if(!letter || letter.length !== 1 || !letter.match(/[a-zA-Z]/)) throw new Error("Exactly 1 letter per guess");
   if(this.gameOver) throw new Error("Can't play after game is over");
@@ -31,7 +28,13 @@ hangman.prototype.guessLetter = function guessLetter(letter){
   if(this.letters.has(normalizedLetter)){
     this.correctLetters.add(normalizedLetter);
   } else {
-    this.incorrectLetters.add(normalizedLetter);
+    if(!this.incorrectLetters.has(normalizedLetter)) 
+    {
+      this.guessesRemaining--;
+    } else {
+      this.incorrectLetters.add(normalizedLetter);
+    }
+    if(this.guessesRemaining === 0) this.gameOver = true;
   }
 }
 module.exports = Hangman;

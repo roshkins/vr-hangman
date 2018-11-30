@@ -69,9 +69,19 @@ aardvark`
         expect(hangman.incorrectLetters.has("z")).toBe(true);
       });
       it("removes a guess if it is incorrect", () => {
-        expect(hangman.gu
+        expect(hangman.guessesRemaining).toBe(5);
       });
       it("doesn't remove a guess if it is incorrect and already removed", () => {
+        hangman.guessLetter("z");
+        expect(hangman.guessesRemaining).toBe(5);
+      });
+      it("sets gameOver to true if zero guesses left", () => {
+        hangman.guessLetter("q");
+        hangman.guessLetter("w");
+        hangman.guessLetter("r");
+        hangman.guessLetter("t");
+        hangman.guessLetter("y");
+        expect(hangman.gameOver).toBe(true);
       });
     });
   });
