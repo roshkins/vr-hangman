@@ -38,6 +38,8 @@ This will start with it being a generic background, and having text being overla
 
 I'll use https://www.npmjs.com/package/aframe-gui for the UI
 
+I'll copy some boilerplate from: https://glitch.com/edit/#!/aframe-adarose?path=public/index.html:31:14
+
 The UI will be a bunch of letters A-Z floating alphabetically in rows, using 3d text as shown here: (https://glitch.com/edit/#!/aframe-vaporwave?path=index.html:1:0) As letters are used they will be greyed out. There will be spaces for the words floating about the keyboard. Above that, a list of incorrect guesses. Above that, a progress bar that decrements after every incorrect guess, and displays how many guesses are left.
 
 ~~After that works, I'll put a collection of 3d-objects to represent the 6 guesses next to the count, hidden after every incorrect guess. They will be dolphin CC0 models. I'll go to the water take a 360 photo of the ocean.~~
