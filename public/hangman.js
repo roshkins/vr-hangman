@@ -8,7 +8,7 @@ Hangman.hangman = function hangman(word) {
   this.gameOver = false;
 }
 function Hangman(){
-  return fetch("http://app.linkedin-reach.io/words").then(response => {
+  return fetch("/words").then(response => {
     if(response.ok) {
       return response.text();
     } else {

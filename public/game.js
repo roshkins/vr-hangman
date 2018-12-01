@@ -4,8 +4,12 @@ var jamaica = new Howl({
   autoplay: true,
   loop: true,
 });
+
+function* runGame() {
 Hangman().then(round => {
   while(!round.getGameOver()){
-    console.log(round.guess("a"));
+    
+    console.log(round.guessLetter("a"));
   }
 });
+}

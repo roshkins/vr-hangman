@@ -18,7 +18,13 @@ app.get('/', function(request, response) {
 });
 
 app.get('/words', function(request, response) {
-  
+  fetch('http://app.linkedin-reach.io/words').then(response => {
+    if(response.ok) {
+      return response.text();
+    } else {
+      throw new Error("Not a 200 response");
+    }
+  }).then(words => response.send(words));
 });
 // listen for requests :)
 const listener = app.listen(process.env.PORT, function() {
