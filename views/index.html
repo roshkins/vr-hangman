@@ -26,13 +26,13 @@
     <a-scene>
       <a-assets>
         <img id="sky360" src="https://cdn.glitch.com/9eaf1f46-83c1-4126-8d77-c70ffae16f90%2FSAM_100_0066.jpg?1543615487212" crossorigin="anonymous" /> <!-- image taken with 360 camera -->
-        <a-asset-item id="HallelujahFont" src="https://cdn.glitch.com/9eaf1f46-83c1-4126-8d77-c70ffae16f90%2FGloria%20Hallelujah_Regular.json?1543626198429" crossorigin="anonymous" />
-        <a-mixin id="font" text="font: #optimerBoldFont"></a-mixin>
+<!--         <a-asset-item id="font" src="https://cdn.glitch.com/9eaf1f46-83c1-4126-8d77-c70ffae16f90%2FGloria%20Hallelujah_Regular.json?1543626198429" crossorigin="anonymous" /> -->
       </a-assets>
       <a-sky src="#sky360" rotation="0 -45 0"></a-sky>
       <a-entity id="theWord"
-                mixin="font" 
-                text-geometry="value: Don't get dunked!; bevelEnabled: true; bevelSize: 0.05; bevelThickness: 0.05; curveSegments: 12; size: 1; height: 0;"
+                text-geometry="value: DONT BE DUNKED; bevelEnabled: true; bevelSize: 0.05; bevelThickness: 0.05; curveSegments: 12; size: 1; height: 0; font: #font"
+                          material="color:lavenderblush; metalness:1; roughness: 0; sphericalEnvMap: #pink;"
+
                 rotation="0 0 5"
                 position="0 2 0.2"
                 ></a-entity>
