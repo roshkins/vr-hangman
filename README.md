@@ -52,7 +52,12 @@ Input:
 https://github.com/lmalave/aframe-speech-command-component
 
 
-I'll use howler.js to give "thwack" sound effects when you guess wrong, a splash if you fall in, and [background music](https://www.freestockmusic.com/international-production-music/free-international-stock-music-jamaica-girl/)
+I'll use howler.js to give "splash" sound effects when you guess wrong, a splash if you fall in, and [background music](https://www.freestockmusic.com/international-production-music/free-international-stock-music-jamaica-girl/)
+
+Splash: http://soundbible.com/2100-Splash-Rock-In-Lake.html
+
+Boat: https://free3d.com/3d-model/boat-37697.html
+Palm tree: https://free3d.com/3d-model/date-palm-2286.html
 
 
 If I get this far I'll brainstorm how to add some of the other nice-to-haves.
