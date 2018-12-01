@@ -30,11 +30,12 @@
         <a-mixin id="font" text="font: #optimerBoldFont"></a-mixin>
       </a-assets>
       <a-sky src="#sky360" rotation="0 -45 0"></a-sky>
-      <a-entity mixin="font"
-      <a-entity geometry="primitive: torus;" material="src: #maze; repeat: 4 2; sphericalEnvMap: #sky360; metalness: 0.8; roughness: 0.2;" scale="2 2 2" position="0 0 -5">
-        <a-animation attribute="rotation" dur="5000" from="0 0 0" to="0 360 0" repeat="indefinite" easing="linear"></a-animation>
-      </a-entity>
-      <a-entity obj-model="obj: #bunny;" material="src: #checkerboard; repeat: 100 100; sphericalEnvMap: #sky360; metalness: 0.8; roughness: 0.2;" position="0 -1 -5" scale="10 10 10"></a-entity>
+      <a-entity id="theWord"
+                mixin="font" 
+                text-geometry="value: Don't get dunked!; bevelEnabled: true; bevelSize: 0.05; bevelThickness: 0.05; curveSegments: 12; size: 1; height: 0;"
+                rotation="0 0 5"
+                position="0 2 0.2"
+                ></a-entity>
       <a-entity id="cameraRig" position="0 1.6 0">
         <a-camera look-controls wasd-controls position="0 0 0">
           <a-gui-cursor id="cursor"
