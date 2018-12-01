@@ -8,8 +8,21 @@ var jamaica = new Howl({
 function* runGame() {
 Hangman().then(round => {
   while(!round.getGameOver()){
+    const guess = yield;
+    const result = round.guessLetter(guess);
     
-    console.log(round.guessLetter("a"));
+  }
+  if(result.hasWon) {
+  alert("You won!");
+  } else {
+    alert("You lost :(");
   }
 });
 }
+
+const game = runGame();
+
+function processGuess(letter) {
+  game.next(letter);
+}
+
