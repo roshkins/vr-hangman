@@ -20,13 +20,14 @@
     <script src="/hangman.js"></script>
     <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-text-geometry-component/dist/aframe-text-geometry-component.min.js"></script>
+    <script src="https://rawgit.com/rdub80/aframe-gui/master/dist/aframe-gui.min.js"></script>
   </head>
   <body>
     <a-scene>
       <a-assets>
         <img id="sky360" src="https://cdn.glitch.com/9eaf1f46-83c1-4126-8d77-c70ffae16f90%2FSAM_100_0066.jpg?1543615487212" crossorigin="anonymous" /> <!-- image taken with 360 camera -->
-       </a-assets>
-        <a-sky src="#sky360" rotation="0 -45 0"></a-sky>
+      </a-assets>
+      <a-sky src="#sky360" rotation="0 -45 0"></a-sky>
       <a-entity position="0 0 0">
         <a-camera></a-camera>
       </a-entity>
@@ -34,10 +35,16 @@
         <a-animation attribute="rotation" dur="5000" from="0 0 0" to="0 360 0" repeat="indefinite" easing="linear"></a-animation>
       </a-entity>
       <a-entity obj-model="obj: #bunny;" material="src: #checkerboard; repeat: 100 100; sphericalEnvMap: #sky360; metalness: 0.8; roughness: 0.2;" position="0 -1 -5" scale="10 10 10"></a-entity>
+      <a-entity id="cameraRig" position="0 1.6 0">
+        <a-camera look-controls wasd-controls position="0 0 0">
+          <a-gui-cursor id="cursor"
+                        raycaster="objects: [gui-interactable]"
+                        fuse="true" fuse-timeout="2000"
+                        design="ring"
+                        >
+          </a-gui-cursor> <!-- /cursor -->
+        </a-camera> <!-- /camera -->
+      </a-entity>
     </a-scene>
-    <!-- include the Glitch button to show what the webpage is about and
-to make it easier for folks to view source and remix 
-<div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
-<script src="https://button.glitch.me/button.js"></script> -->
   </body>
 </html>
