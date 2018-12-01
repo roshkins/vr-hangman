@@ -8,7 +8,7 @@ Hangman.hangman = function hangman(word) {
   this.gameOver = false;
 }
 function Hangman(){
-  return fetch("http://app.linkedin-reach.io/words").then(response => {
+  return fetch("https://app.linkedin-reach.io/words").then(response => {
     if(response.ok) {
       return response.text();
     } else {
@@ -51,4 +51,7 @@ hangman.prototype.guessLetter = function guessLetter(letter){
   hangman.prototype.getDisplayedWord = function getDisplayedWord(){
     return this.word.split("").map(letter => this.correctLetters.has(letter) ? letter : "_");
   }
-module.exports = Hangman;
+  hangman.prototype.getGameOver = function getGameOver(){
+    return this.gameOver;
+  }
+if(typeof module !== "undefined") module.exports = Hangman;
