@@ -46,7 +46,7 @@ The UI will be a bunch of letters A-Z floating alphabetically in rows, using 3d 
 
 ~~When you guess wrong, the dolphins will fall into the water. We'll grab a CC0 sound clip of a splash. We'll take a 15 second clip of "under the sea" and play it on loop for background music. I'll use "howlerjs" to play the music.~~
 
-After that works, I'll make the sky a 360 image of the ocean (my photograph), with water underneath. The goal will be to not get dunked into the ocean! Each wrong guess will bring you closer to your doom, vertically.
+After that works, I'll make the sky a 360 image of the ocean (my photograph), with water underneath. The goal will be to not get dunked into the ocean! Each wrong guess will bring you closer to your doom, vertically. I'll do that by scaling the y axis.
 
 I'll use howler.js to give "thwack" sound effects when you guess wrong, a splash if you fall in, and [background music](https://www.freestockmusic.com/international-production-music/free-international-stock-music-jamaica-girl/)
 
