@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Welcome to Glitch!</title>
+    <title>VR Hangman!</title>
     <meta name="description" content="A cool thing made with Glitch">
     <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
     <meta charset="utf-8">
@@ -31,8 +31,7 @@
       <a-assets>
         <img id="sky360" src="https://cdn.glitch.com/9eaf1f46-83c1-4126-8d77-c70ffae16f90%2FSAM_100_0066_cropped.jpg?1543631498113" crossorigin="anonymous" /> <!-- image taken with 360 camera --> 
         <a-asset-item id="hallelFont" src="https://cdn.glitch.com/9eaf1f46-83c1-4126-8d77-c70ffae16f90%2FGloria%20Hallelujah_Regular%20(3).json?1543629807291" crossorigin="anonymous" />
-        <a-asset-item id="tree-obj" src="https://cdn.glitch.com/9eaf1f46-83c1-4126-8d77-c70ffae16f90%2FDate%20Palm.obj?1543638413901"></a-asset-item>
-        <a-asset-item id="tree-mtl" src="https://cdn.glitch.com/9eaf1f46-83c1-4126-8d77-c70ffae16f90%2FDate%20Palm.mtl?1543638402570"></a-asset-item>
+        <a-asset-item id="boat" src="https://cdn.glitch.com/9eaf1f46-83c1-4126-8d77-c70ffae16f90%2Fboat.gltf?1543639648827"></a-asset-item>
       </a-assets>
       <a-sky src="#sky360" rotation="0 -45 0"></a-sky>
       <a-entity id="word"
@@ -62,7 +61,7 @@
                 position="0 -4 -10"
                 material="color: white;"
                 ></a-entity>
-      <a-entity 
+      <a-gltf-model src="#boat"></a-gltf-model>
     </a-scene>
   </body>
 </html>

@@ -56,7 +56,7 @@ I'll use howler.js to give "splash" sound effects when you guess wrong, a splash
 
 Splash: http://soundbible.com/2100-Splash-Rock-In-Lake.html
 
-Boat: https://free3d.com/3d-model/boat-37697.html
+Boat: https://free3d.com/3d-model/boat-37697.html, https://free3d.com/3d-model/suncruiser-caribean-cruiser-ship-93957.html
 Palm tree: https://free3d.com/3d-model/date-palm-2286.html
 
 
