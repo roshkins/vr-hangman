@@ -3,6 +3,7 @@
 
 // init project
 const express = require('express');
+const fetch = require('isomorphic-fetch');
 const app = express();
 
 // we've started you off with Express, 
@@ -16,6 +17,9 @@ app.get('/', function(request, response) {
   response.sendFile(__dirname + '/views/index.html');
 });
 
+app.get('/words', function(request, response) {
+  
+});
 // listen for requests :)
 const listener = app.listen(process.env.PORT, function() {
   console.log('Your app is listening on port ' + listener.address().port);

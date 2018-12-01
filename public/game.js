@@ -4,9 +4,8 @@ var jamaica = new Howl({
   autoplay: true,
   loop: true,
 });
-
-const round = Hangman();
-
-while(!round.getGameOver()){
-  console.log(hangman.guess("a"));
-}
+Hangman().then(round => {
+  while(!round.getGameOver()){
+    console.log(round.guess("a"));
+  }
+});
