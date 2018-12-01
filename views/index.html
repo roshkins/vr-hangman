@@ -38,22 +38,26 @@
                 material="color: white;"
                 >
       </a-entity>
-     <a-entity light="type: directional; color: #003; intensity: 1" position="-1 10 1"></a-entity>
-      </a-light>
+     <a-entity light="type: directional; color: #FFF; intensity: 1" position="-2 0 2" rotation="-20 0 0"></a-entity>
       <a-entity id="message"
                 text-geometry="value: Don't Get Wet!; font: #hallelFont;"
                 position="-2 5 -7"
-                material="color: white;"
+                material="color: #AAF;"
                 ></a-entity>
       <a-entity id="instructions"
                 text-geometry="value:  Speak your guess, for example, to guess I, say 'I'; font: #hallelFont;"
                 position="-5 4 -9"
-                material="color: white;"
+                material="color: #AAF;"
                 ></a-entity>
       <a-entity id="wrong"
                 text-geometry="value: Incorrect: X Z V W; font: #hallelFont; size: 1;"
-                position="-10 -3 -10"
-                material="color: red;"
+                position="-15 -6.5 -10"
+                material="color: #FAA;"
+                ></a-entity>
+          <a-entity id="guesses"
+                text-geometry="value: Guesses: 6; font: #hallelFont; size: 2;"
+                position="0 -4 -10"
+                material="color: white;"
                 ></a-entity>
     </a-scene>
   </body>
