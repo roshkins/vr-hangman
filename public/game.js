@@ -4,30 +4,25 @@ var jamaica = new Howl({
   autoplay: true,
   loop: true,
 });
-
-function* runGame() {
-Hangman().then(round => {
+async function* runGame() {
+  const round = await Hangman();
   while(!round.getGameOver()){
-    const guess = yield;
-    const result = round.guessLetter(guess);
-    
+    const result = round.guessLetter(yield);
+    console.log(result);
+    if(result.hasWon) {
+      alert("You won!");
+    } else if (result.hasLost) {
+      alert("You lost :(");
+    }
   }
-  if(result.hasWon) {
-  alert("You won!");
-  } else {
-    alert("You lost :(");
-  }
-});
 }
-
 const game = runGame();
-
 function processGuess(letter) {
   game.next(letter);
 }
-
 if (typeof annyang !== "undefined") {
   const commands = {};
   "abcdefghijklmnopqrstuvwxyz".split("").forEach(letter => commands[letter] = () => processGuess(letter));
-  
+  annyang.addCommands(commands);
+  annyang.start();
 }
