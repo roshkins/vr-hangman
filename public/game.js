@@ -24,7 +24,7 @@ async function* runGame() {
     const result = round.guessLetter(yield);
     console.log(result);
     updateEntityText('wrong', `Incorrect: ${result.incorrectGuesses.join(" ")}`);
-    document.querySelector('#skybox').setAttribute('scale',`-1, ${1/result.incorrectGuesses.length} 1`);
+    document.querySelector('#skybox').setAttribute('scale',`-1, ${1/(1+result.incorrectGuesses.length)} 1`);
     if(result.wrongGuess) splash.play();
     updateEntityText('guesses', `Guesses: ${result.guessesRemaining}`);
     updateEntityText('word', result.displayedWord);
@@ -41,10 +41,13 @@ game.next();
 function processGuess(letter) {
   game.next(letter);
 }
+
 if (typeof annyang !== "undefined") {
   const commands = {
     "mute": () => jamaica.mute(true),
-    "stop": () => jamaica.mute(true)
+    "stop": () => jamaica.mute(true),
+    "shh": () => jamaica.mute(true),
+    "be quiet": () => jamaica.mute(true)
   };
   "abcdefghijklmnopqrstuvwxyz".split("").forEach(letter => commands[letter] = () => processGuess(letter));
   annyang.addCommands(commands);
