@@ -26,3 +26,8 @@ function processGuess(letter) {
   game.next(letter);
 }
 
+if (typeof annyang !== "undefined") {
+  const commands = {};
+  "abcdefghijklmnopqrstuvwxyz".split("").forEach(letter => commands[letter] = () => processGuess(letter));
+  
+}
