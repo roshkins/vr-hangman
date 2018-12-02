@@ -8,7 +8,7 @@ const splash = new Howl({
   src: ['https://cdn.glitch.com/9eaf1f46-83c1-4126-8d77-c70ffae16f90%2FVideo_Game_Splash-Ploor-699235037.mp3?1543718141870']
 });
 const applause = new Howl({
-  src: ['https://cdn.glitch.com/9eaf1f46-83c1-4126-8d77-c70ffae16f90%2FAuditorium%20Applause-SoundBible.com-280911206.mp3?1543783135096']
+  src: ['https://cdn.glitch.com/9eaf1f46-83c1-4126-8d77-c70ffae16f90%2FSHORT-Auditorium%20Applause-SoundBible.com-280911206.mp3?1543785128995']
 });
 function updateEntityText(entityId, text) {
   document.querySelector(`#${entityId}`).setAttribute('text-geometry', {
