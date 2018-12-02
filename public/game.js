@@ -9,19 +9,17 @@ function updateEntityText(entityId, text) {
     value: text,
   });
 }
-let round = null;
-// initialize hangan to empty array
-(async function loadHangman() {
-  round = await Hangman();
+
+async function* runGame() {
+  const round = await Hangman();
   updateEntityText('word', (new Array(round.word.length)).fill("_").join(""));
-})();
-function* runGame() {
+  await undefined;
   if(typeof round === "undefined") return;
   while(!round.getGameOver()){
     const result = round.guessLetter(yield);
     console.log(result);
     updateEntityText('wrong', `Incorrect: ${result.incorrectGuesses.join(" ")}`);
-    document.querySelector('#skybox').scale.set(1, 1+result.incorrectGuesses.length, 1);
+    document.querySelector('#skybox').scale.set(-1, 1+result.incorrectGuesses.length, 1);
     updateEntityText('guesses', `Guesses: ${result.guessesRemaining}`);
     updateEntityText('word', result.displayedWord);
     if(result.hasWon) {
@@ -33,6 +31,7 @@ function* runGame() {
   }
 }
 const game = runGame();
+game.next();
 function processGuess(letter) {
   game.next(letter);
 }
