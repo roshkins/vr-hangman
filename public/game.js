@@ -34,9 +34,11 @@ function* runGame(round) {
   }
 }
 let game = null;
-Hangman().then(round => {game = runGame(round);
-                         updateEntityText('word', (new Array(round.word.length)).fill("_").join(""));
-                        })
+Hangman().then(round => {
+  game = runGame(round);
+  updateEntityText('word', (new Array(round.word.length)).fill("_").join(""));
+}
+              )
 function processGuess(letter) {
   game.next(letter);
 }
