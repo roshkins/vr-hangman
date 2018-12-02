@@ -9,19 +9,24 @@ function updateEntityText(entityId, text) {
     value: text,
   });
 }
-async function* runGame() {
-  const round = await Hangman();
+let round = null;
+// initialize hangan to empty array
+(async function loadHangman() {
+  round = await Hangman();
+  updateEntityText('word', (new Array(round.word.length)).fill("_").join(""));
+})();
+function* runGame() {
+  if(typeof round === "undefined") return;
   while(!round.getGameOver()){
     const result = round.guessLetter(yield);
     console.log(result);
     updateEntityText('wrong', `Incorrect: ${result.incorrectGuesses.join(" ")}`);
     updateEntityText('guesses', `Guesses: ${result.guessesRemaining}`);
     updateEntityText('word', result.displayedWord);
-    
     if(result.hasWon) {
       alert("You won!");
     } else if (result.hasLost) {
-      alert("You lost :(");
+      alert(`You lost :( The word was: ${round.word}`);
     }
   }
 }
