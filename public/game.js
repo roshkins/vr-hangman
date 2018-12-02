@@ -21,12 +21,14 @@ function* runGame() {
     const result = round.guessLetter(yield);
     console.log(result);
     updateEntityText('wrong', `Incorrect: ${result.incorrectGuesses.join(" ")}`);
+    document.querySelector('#skybox').scale.set(1, 1+result.incorrectGuesses.length, 1);
     updateEntityText('guesses', `Guesses: ${result.guessesRemaining}`);
     updateEntityText('word', result.displayedWord);
     if(result.hasWon) {
       alert("You won!");
     } else if (result.hasLost) {
       alert(`You lost :( The word was: ${round.word}`);
+      updateEntityText('word', round.word);
     }
   }
 }
