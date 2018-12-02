@@ -1,7 +1,8 @@
-/* global Howl Hangman annyang*/
+/* global Howl Hangman annyang webkitSpeechRecognitionError*/
 const jamaica = new Howl({
   src: ['https://cdn.glitch.com/9eaf1f46-83c1-4126-8d77-c70ffae16f90%2Fjamaica-girl.mp3?1543539881629'],
   loop: true,
+  volume: 0.5
 });
 const splash = new Howl({
   src: ['https://cdn.glitch.com/9eaf1f46-83c1-4126-8d77-c70ffae16f90%2FVideo_Game_Splash-Ploor-699235037.mp3?1543718141870']
@@ -44,18 +45,13 @@ function playMusic() {
 }
 if (annyang) {
   const commands = {
-    "play": playMusic,
-    "music": playMusic,
-    "mute": playMusic,
-    "stop": mute,
-    "shh": mute,
-    "be quiet": mute
   };
-  ["play", "music", "mute", "stop", "sh", "be quiet"].forEach(command => commands[command] = playMusic
-  annyang.addCallback('error', function(e) {
-    updateEntityText('instructions', e.message);
-  });
+  ["play", "music", "mute", "stop", "sh", "be quiet"].forEach(command => commands[command] = playMusic);
   "abcdefghijklmnopqrstuvwxyz".split("").forEach(letter => commands[letter] = () => processGuess(letter));
+  annyang.addCallback('error', function(e) {
+    if(e instanceof webkitSpeechRecognitionError) window.location = "https://vr-hangman.glitch.me";
+    updateEntityText('instructions', e.toString() + e.message);
+  });
   annyang.addCommands(commands);
   annyang.start();
 } else {
