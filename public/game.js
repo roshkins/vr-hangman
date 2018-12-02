@@ -26,9 +26,9 @@ async function* runGame() {
     updateEntityText('guesses', `Guesses: ${result.guessesRemaining}`);
     updateEntityText('word', result.displayedWord);
     if(result.hasWon) {
-      updateEntityText('instructions', "You won! Refresh to play again.");
+      updateEntityText('instructions', "You won! Say 'New Game' to play again.");
     } else if (result.hasLost) {
-      updateEntityText('instructions', "You lost. :( Refresh to play again.");
+      updateEntityText('instructions', "You lost. :( Say 'New Game' to play again.");
       updateEntityText('word', round.word);
     }
   }
@@ -45,12 +45,13 @@ function playMusic() {
 }
 if (annyang) {
   const commands = {
+    "New Game": () => window.location += ""
   };
   ["play", "music", "mute", "stop", "sh", "be quiet"].forEach(command => commands[command] = playMusic);
   "abcdefghijklmnopqrstuvwxyz".split("").forEach(letter => commands[letter] = () => processGuess(letter));
   annyang.addCallback('error', function(e) {
-    if(e instanceof webkitSpeechRecognitionError) window.location = "https://vr-hangman.glitch.me";
-    updateEntityText('instructions', e.toString() + e.message);
+    if(e instanceof webkitSpeechRecognitionError && window.location.protocol !== "https:") window.location = "https://vr-hangman.glitch.me";
+    // updateEntityText('instructions', e.toString() + e.message);
   });
   annyang.addCommands(commands);
   annyang.start();
