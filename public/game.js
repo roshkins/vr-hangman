@@ -9,6 +9,9 @@ async function* runGame() {
   while(!round.getGameOver()){
     const result = round.guessLetter(yield);
     console.log(result);
+    document.querySelector('wrong').setAttribute('text-geometry', {
+      value: `Incorrect: ${} `,
+    });
     if(result.hasWon) {
       alert("You won!");
     } else if (result.hasLost) {
