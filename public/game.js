@@ -3,17 +3,14 @@ const jamaica = new Howl({
   src: ['https://cdn.glitch.com/9eaf1f46-83c1-4126-8d77-c70ffae16f90%2Fjamaica-girl.mp3?1543539881629'],
   loop: true,
 });
-
 const splash = new Howl({
   src: ['https://cdn.glitch.com/9eaf1f46-83c1-4126-8d77-c70ffae16f90%2FVideo_Game_Splash-Ploor-699235037.mp3?1543718141870']
 });
-
 function updateEntityText(entityId, text) {
   document.querySelector(`#${entityId}`).setAttribute('text-geometry', {
     value: text,
   });
 }
-
 async function* runGame() {
   const round = await Hangman();
   updateEntityText('word', (new Array(round.word.length)).fill("_").join(""));
@@ -28,9 +25,9 @@ async function* runGame() {
     updateEntityText('guesses', `Guesses: ${result.guessesRemaining}`);
     updateEntityText('word', result.displayedWord);
     if(result.hasWon) {
-      alert("You won!");
+      updateEntityText('instructions', "You won! Refresh to play again.");
     } else if (result.hasLost) {
-      alert(`You lost :( The word was: ${round.word}`);
+      updateEntityText('instructions', "You lost. :( Refresh to play again.");
       updateEntityText('word', round.word);
     }
   }
@@ -40,25 +37,24 @@ game.next();
 function processGuess(letter) {
   game.next(letter);
 }
-
 function playMusic() {
-  if(!jamaica.playing()) jamaica.play();
+  if(!jamaica.playing()) {jamaica.play();} else {
+    jamaica.pause();
+  }
 }
-
-function mute() {
-  jamaica.mute(!jamaica.mute())
-}
-
-
 if (annyang) {
   const commands = {
     "play": playMusic,
     "music": playMusic,
-    "mute": mute,
+    "mute": playMusic,
     "stop": mute,
     "shh": mute,
     "be quiet": mute
   };
+  ["play", "music", "mute", "stop", "sh", "be quiet"].forEach(command => commands[command] = playMusic
+  annyang.addCallback('error', function(e) {
+    updateEntityText('instructions', e.message);
+  });
   "abcdefghijklmnopqrstuvwxyz".split("").forEach(letter => commands[letter] = () => processGuess(letter));
   annyang.addCommands(commands);
   annyang.start();
