@@ -26,6 +26,7 @@ hangman.prototype.guessLetter = function guessLetter(letter){
   if(!letter || letter.length !== 1 || !letter.match(/[a-zA-Z]/)) throw new Error("Exactly 1 letter per guess");
   if(this.gameOver) throw new Error("Can't play after game is over");
   const normalizedLetter = letter.toLowerCase();
+  let wrongGuess = false;
   if(this.letters.has(normalizedLetter)){
     this.correctLetters.add(normalizedLetter);
     if(Array.from(this.correctLetters).length === Array.from(this.letters).length) {
@@ -37,12 +38,14 @@ hangman.prototype.guessLetter = function guessLetter(letter){
     {
       this.guessesRemaining--;
       this.incorrectLetters.add(normalizedLetter);
+      wrongGuess = true;
     }
     if(this.guessesRemaining === 0) this.gameOver = true;
   }
   return {
     displayedWord: this.getDisplayedWord(),
     incorrectGuesses: Array.from(this.incorrectLetters),
+    wrongGuess,
     guessesRemaining: this.guessesRemaining,
     hasWon: this.hasWon,
     hasLost: this.gameOver && !this.hasWon
