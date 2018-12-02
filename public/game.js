@@ -41,20 +41,27 @@ function processGuess(letter) {
   game.next(letter);
 }
 
-function play() {
-
+function playMusic() {
+  if(!jamaica.playing()) jamaica.play();
 }
 
-if (typeof annyang !== "undefined") {
+function mute() {
+  jamaica.mute(!jamaica.mute())
+}
+
+
+if (annyang) {
   const commands = {
-    "play": () => jamaica.play(),
-    "music": () => jamaica.play(),
-    "mute": () => jamaica.mute(true),
-    "stop": () => jamaica.mute(true),
-    "shh": () => jamaica.mute(true),
-    "be quiet": () => jamaica.mute(true)
+    "play": playMusic,
+    "music": playMusic,
+    "mute": mute,
+    "stop": mute,
+    "shh": mute,
+    "be quiet": mute
   };
   "abcdefghijklmnopqrstuvwxyz".split("").forEach(letter => commands[letter] = () => processGuess(letter));
   annyang.addCommands(commands);
   annyang.start();
+} else {
+  alert('RIP! You need speech recognition in your browser.');
 }
