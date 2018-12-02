@@ -49,7 +49,7 @@ hangman.prototype.guessLetter = function guessLetter(letter){
   };
 }
   hangman.prototype.getDisplayedWord = function getDisplayedWord(){
-    return this.word.split("").map(letter => this.correctLetters.has(letter) ? letter : "_");
+    return this.word.split("").map(letter => this.correctLetters.has(letter) ? letter : "_").join("");
   }
   hangman.prototype.getGameOver = function getGameOver(){
     return this.gameOver;
