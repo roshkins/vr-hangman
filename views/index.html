@@ -29,9 +29,6 @@
     <a-scene>
       <a-assets>
         <img id="sky360" src="https://cdn.glitch.com/9eaf1f46-83c1-4126-8d77-c70ffae16f90%2FSAM_100_0066_cropped.jpg?1543631498113" crossorigin="anonymous" /> <!-- image taken with 360 camera --> 
-        <a-asset-item id="hallelFont" src="https://cdn.glitch.com/9eaf1f46-83c1-4126-8d77-c70ffae16f90%2FhallelFont.fnt?1543869012206" crossorigin="anonymous" />
-        <a-asset-item id="hallelFontImg" src="https://cdn.glitch.com/9eaf1f46-83c1-4126-8d77-c70ffae16f90%2FhallelFont.png?1543869012447" crossorigin="anonymous" />
-
       </a-assets>
       <a-sky id="skybox" src="#sky360" scale="-1 1 1" rotation="0 -45 0"></a-sky>
 <!--             <a-sky id="skybox" material="color: blue;" scale="-1 1 1" rotation="0 -45 0"></a-sky> -->
@@ -39,28 +36,37 @@
       <a-entity id="word"
                 text="value: Loading...; font: sourcecodepro;"
                 position="-2 1 -2"
+                height="2"
                 material="color: white;"
                 >
       </a-entity>
      <a-entity light="type: directional; color: #FFF; intensity: 1" position="-2 0 2" rotation="-20 0 0"></a-entity>
       <a-entity id="title"
-                text="value: Don't Get Wet!; font: #hallelFont; fontImage: #hallelFontImg;"
+                text="value: Don't Get Wet!; font: https://cdn.glitch.com/9eaf1f46-83c1-4126-8d77-c70ffae16f90%2FhallelFont.fnt?1543869012206; fontImage: https://cdn.glitch.com/9eaf1f46-83c1-4126-8d77-c70ffae16f90%2FhallelFont.png?1543869012447;"
                 position="-2 5 -7"
+                                height="2"
+
                 material="color: #AAF;"
                 ></a-entity>
       <a-entity id="instructions"
-                text="value:  Speak your guess, for example, to guess I, say 'I'. Say 'music' for music; font: #hallelFont; fontImage: #hallelFontImg;"
+                text="value:  Speak your guess, for example, to guess I, say 'I'. Say 'music' for music; font: https://cdn.glitch.com/9eaf1f46-83c1-4126-8d77-c70ffae16f90%2FhallelFont.fnt?1543869012206; fontImage: https://cdn.glitch.com/9eaf1f46-83c1-4126-8d77-c70ffae16f90%2FhallelFont.png?1543869012447;"
                 position="-5 4 -9"
+                                height="2"
+
                 material="color: #AAF;"
                 ></a-entity>
       <a-entity id="wrong"
-                text="value: Incorrect:; font: #hallelFont; fontImage: #hallelFontImg; size: 1;"
+                text="value: Incorrect:; font: https://cdn.glitch.com/9eaf1f46-83c1-4126-8d77-c70ffae16f90%2FhallelFont.fnt?1543869012206; fontImage: https://cdn.glitch.com/9eaf1f46-83c1-4126-8d77-c70ffae16f90%2FhallelFont.png?1543869012447; size: 1;"
                 position="-15 -6.5 -10"
+                                height="2"
+
                 material="color: #FAA;"
                 ></a-entity>
           <a-entity id="guesses"
-                text="value: Guesses: 6; font: #hallelFont; fontImage: #hallelFontImg; size: 2;"
+                text="value: Guesses: 6; font: https://cdn.glitch.com/9eaf1f46-83c1-4126-8d77-c70ffae16f90%2FhallelFont.fnt?1543869012206; fontImage: https://cdn.glitch.com/9eaf1f46-83c1-4126-8d77-c70ffae16f90%2FhallelFont.png?1543869012447; size: 2;"
                 position="0 -4 -10"
+                                    height="2"
+
                 material="color: white;"
                 ></a-entity>
     </a-scene>
