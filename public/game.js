@@ -37,14 +37,14 @@ function* runGame(round) {
       updateEntityText('instructions', "You won! Say 'New Game' to play again.");
     } else if (result.hasLost) {
       updateEntityText('instructions', "You lost. :( Say 'New Game' to play again.");
-      updateEntityText('word', round.word);
+      updateEntityTextGeometry('word', round.word);
     }
   }
 }
 let game = null;
 Hangman().then(round => {
   game = runGame(round);
-  updateEntityText('word', (new Array(round.word.length)).fill("_").join(""));
+  updateEntityTextGeometry('word', (new Array(round.word.length)).fill("_").join(""));
 }
               )
 function processGuess(letter) {
