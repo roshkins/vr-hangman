@@ -9,6 +9,16 @@ Go to [https://vr-hangman.glitch.me](https://vr-hangman.glitch.me) to see the de
 
 Check out the code here: https://glitch.com/edit/#!/vr-hangman or in this repo.
 
+## Instructions
+
+Use a VR web browser, or a normal web browser.
+
+Use your microphone to control the game! Make sure to enable microphone permissions.
+Say 'Music' to start the game music.
+
+Then, wait for the word to load and start shouting out your guesses, from 'a' to 'z'! The letters will appear when it recognizes it. It may take a few attempts.
+
+Good luck, and don't sink!
 
 
 ## Goals
