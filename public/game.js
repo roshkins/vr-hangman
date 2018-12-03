@@ -21,10 +21,10 @@ function* runGame(round) {
     const result = round.guessLetter(yield);
     console.log(result);
     //Put fn in call stack to lower processing load
-    setTimeout(() => {updateEntityText('wrong', `Incorrect: ${result.incorrectGuesses.join(" ")}`)
-                         //document.querySelector('#skybox').setAttribute('scale',`-1, ${1/(1+result.incorrectGuesses.length*2)} 1`);
+    setTimeout(() => {updateEntityText('wrong', `Incorrect: ${result.incorrectGuesses.join(" ")}`);
+                       document.querySelector('#skybox').object3D.scale = [-1, 1/(1+result.incorrectGuesses.length*2), 1];
                      },1);
-    if(result.wrongGuess) {splash.play();} else {applause.play();}
+    // if(result.wrongGuess) {splash.play();} else {applause.play();}
     updateEntityText('guesses', `Guesses: ${result.guessesRemaining}`);
     updateEntityText('word', result.displayedWord);
     if(result.hasWon) {
