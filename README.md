@@ -3,6 +3,12 @@
 ## How to run
 
 `pnpm test` to run tests (in cli)
+`npm start` on non-glitch platform
+
+Go to [https://vr-hangman.glitch.me](https://vr-hangman.glitch.me) to see the demo live!
+
+Check out the code here: https://glitch.com/edit/#!/vr-hangman or in this repo.
+
 
 
 ## Goals
@@ -56,8 +62,13 @@ I'll use howler.js to give "splash" sound effects when you guess wrong, a splash
 
 Splash: http://soundbible.com/2100-Splash-Rock-In-Lake.html
 
-Boat: https://free3d.com/3d-model/boat-37697.html, https://free3d.com/3d-model/suncruiser-caribean-cruiser-ship-93957.html
-Palm tree: https://free3d.com/3d-model/date-palm-2286.html
+Applause: http://soundbible.com/1260-Auditorium-Applause.html
+
+Beach: https://pixabay.com/en/beach-mountain-360-ocean-landscape-3531358/
+
+
+Ocean: https://pixabay.com/en/ocean-sea-submerged-underwater-1845110/
+
 
 
 If I get this far I'll brainstorm how to add some of the other nice-to-haves.
