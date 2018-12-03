@@ -11,6 +11,12 @@ const applause = new Howl({
   src: ['https://cdn.glitch.com/9eaf1f46-83c1-4126-8d77-c70ffae16f90%2FSHORT-Auditorium%20Applause-SoundBible.com-280911206.mp3?1543785128995']
 });
 function updateEntityText(entityId, text) {
+  document.querySelector(`#${entityId}`).setAttribute('text', {
+    value: text,
+  });
+}
+
+function updateEntityTextGeometry(entityId, text) {
   document.querySelector(`#${entityId}`).setAttribute('text-geometry', {
     value: text,
   });
@@ -26,7 +32,7 @@ function* runGame(round) {
                      },1);
     if(result.wrongGuess) {splash.play();} else {applause.play();}
     updateEntityText('guesses', `Guesses: ${result.guessesRemaining}`);
-    updateEntityText('word', result.displayedWord);
+    updateEntityTextGeometry('word', result.displayedWord);
     if(result.hasWon) {
       updateEntityText('instructions', "You won! Say 'New Game' to play again.");
     } else if (result.hasLost) {
