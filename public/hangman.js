@@ -3,6 +3,7 @@ Hangman.hangman = function hangman(word) {
   this.letters = new Set(this.word.split(""));
   this.correctLetters = new Set([]);
   this.incorrectLetters = new Set([]);
+  this.incorrectLettersArray = [];
   this.guessesRemaining = 6;
   this.hasWon = false;
   this.gameOver = false;
@@ -38,13 +39,14 @@ hangman.prototype.guessLetter = function guessLetter(letter){
     {
       this.guessesRemaining--;
       this.incorrectLetters.add(normalizedLetter);
+      this.incorrectLettersArray.push(normalizedLetter);
       wrongGuess = true;
     }
     if(this.guessesRemaining === 0) this.gameOver = true;
   }
   return {
     displayedWord: this.getDisplayedWord(),
-    incorrectGuesses: Array.from(this.incorrectLetters),
+    incorrectGuesses: this.incorrectLettersArray,
     wrongGuess,
     guessesRemaining: this.guessesRemaining,
     hasWon: this.hasWon,

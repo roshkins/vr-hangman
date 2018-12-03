@@ -20,9 +20,11 @@ function* runGame(round) {
   while(!round.getGameOver()){
     const result = round.guessLetter(yield);
     console.log(result);
-    updateEntityText('wrong', `Incorrect: ${result.incorrectGuesses.join(" ")}`);
-    document.querySelector('#skybox').setAttribute('scale',`-1, ${1/(1+result.incorrectGuesses.length*2)} 1`);
-    if(result.wrongGuess) {setTimeout(splash.play,1)} else {setTimeout(applause.play(),1)}
+    //Put fn in call stack to lower processing load
+    setTimeout(() => {updateEntityText('wrong', `Incorrect: ${result.incorrectGuesses.join(" ")}`)
+                         document.querySelector('#skybox').setAttribute('scale',`-1, ${1/(1+result.incorrectGuesses.length*2)} 1`);
+                     },1);
+    if(result.wrongGuess) {splash.play();} else {applause.play();}
     updateEntityText('guesses', `Guesses: ${result.guessesRemaining}`);
     updateEntityText('word', result.displayedWord);
     if(result.hasWon) {
@@ -47,18 +49,21 @@ function playMusic() {
     jamaica.pause();
   }
 }
-if (annyang) {
-  const commands = {
-    "New Game": () => window.location += ""
-  };
-  ["play", "music", "mute", "stop", "sh", "be quiet"].forEach(command => commands[command] = playMusic);
-  "abcdefghijklmnopqrstuvwxyz".split("").forEach(letter => commands[letter] = () => processGuess(letter));
-  annyang.addCallback('error', function(e) {
-    if(e instanceof webkitSpeechRecognitionError && window.location.protocol !== "https:") window.location = "https://vr-hangman.glitch.me";
-    // updateEntityText('instructions', e.toString() + e.message);
-  });
-  annyang.addCommands(commands);
-  annyang.start();
-} else {
-  alert('RIP! You need speech recognition in your browser.');
+
+function startListening(){
+  if (annyang) {
+    const commands = {
+      "New Game": () => window.location += ""
+    };
+    ["play", "music", "mute", "stop", "sh", "be quiet"].forEach(command => commands[command] = playMusic);
+    "abcdefghijklmnopqrstuvwxyz".split("").forEach(letter => commands[letter] = () => processGuess(letter));
+    annyang.addCallback('error', function(e) {
+      if(e instanceof webkitSpeechRecognitionError && window.location.protocol !== "https:") window.location = "https://vr-hangman.glitch.me";
+      // updateEntityText('instructions', e.toString() + e.message);
+    });
+    annyang.addCommands(commands);
+    annyang.start();
+  } else {
+    alert('RIP! You need speech recognition in your browser.');
+  }
 }
