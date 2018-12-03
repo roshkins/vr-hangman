@@ -37,6 +37,7 @@ function* runGame(round) {
       updateEntityText('instructions', "You won! Say 'New Game' to play again.");
     } else if (result.hasLost) {
       updateEntityText('instructions', "You lost. :( Say 'New Game' to play again.");
+      document.querySelector("#skybox").setAttribute('src', '#ocean');
       updateEntityTextGeometry('word', round.word);
     }
   }
