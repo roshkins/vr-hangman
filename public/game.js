@@ -22,7 +22,7 @@ function* runGame(round) {
     console.log(result);
     //Put fn in call stack to lower processing load
     setTimeout(() => {updateEntityText('wrong', `Incorrect: ${result.incorrectGuesses.join(" ")}`)
-                         document.querySelector('#skybox').setAttribute('scale',`-1, ${1/(1+result.incorrectGuesses.length*2)} 1`);
+                         //document.querySelector('#skybox').setAttribute('scale',`-1, ${1/(1+result.incorrectGuesses.length*2)} 1`);
                      },1);
     if(result.wrongGuess) {splash.play();} else {applause.play();}
     updateEntityText('guesses', `Guesses: ${result.guessesRemaining}`);
@@ -67,3 +67,5 @@ function startListening(){
     alert('RIP! You need speech recognition in your browser.');
   }
 }
+
+startListening();
