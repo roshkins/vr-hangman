@@ -22,7 +22,7 @@ function* runGame(round) {
     console.log(result);
     updateEntityText('wrong', `Incorrect: ${result.incorrectGuesses.join(" ")}`);
     document.querySelector('#skybox').setAttribute('scale',`-1, ${1/(1+result.incorrectGuesses.length*2)} 1`);
-    if(result.wrongGuess) {splash.play();} else {applause.play();}
+    if(result.wrongGuess) {setTimeout(splash.play,1)} else {setTimeout(applause.play(),1)}
     updateEntityText('guesses', `Guesses: ${result.guessesRemaining}`);
     updateEntityText('word', result.displayedWord);
     if(result.hasWon) {
@@ -43,7 +43,7 @@ function processGuess(letter) {
   game.next(letter);
 }
 function playMusic() {
-  if(!jamaica.playing()) {jamaica.play();} else {
+  if(!jamaica.playing()) {setTimeout(jamaica.play(),1);} else {
     jamaica.pause();
   }
 }
