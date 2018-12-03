@@ -40,13 +40,13 @@ hangman.prototype.guessLetter = function guessLetter(letter){
       this.guessesRemaining--;
       this.incorrectLetters.add(normalizedLetter);
       this.incorrectLettersArray.push(normalizedLetter);
+    }  
       wrongGuess = true;
-    }
     if(this.guessesRemaining === 0) this.gameOver = true;
   }
   return {
     displayedWord: this.getDisplayedWord(),
-    incorrectGuesses: this.incorrectLettersArray,
+    incorrectGuesses: this.incorrectLettersArray.join(" "),
     wrongGuess,
     guessesRemaining: this.guessesRemaining,
     hasWon: this.hasWon,
