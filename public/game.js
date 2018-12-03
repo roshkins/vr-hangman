@@ -35,6 +35,7 @@ function* runGame(round) {
     updateEntityTextGeometry('word', result.displayedWord);
     if(result.hasWon) {
       updateEntityText('instructions', "You won! Say 'New Game' to play again.");
+      document.querySelector('#skybox').setAttribute('scale',`-1, 1  1`);
             document.querySelector("#skybox").setAttribute('src', '#beach');
     } else if (result.hasLost) {
       updateEntityText('instructions', "You lost. :( Say 'New Game' to play again.");
