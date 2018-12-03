@@ -27,7 +27,7 @@ function* runGame(round) {
     const result = round.guessLetter(yield);
     console.log(result);
     //Put fn in call stack to lower processing load
-    if(!(result.hasWon || result.hasLost)) setTimeout(() => {updateEntityText('wrong', `Incorrect: ${result.incorrectGuesses}`)
+    if(!result.gameOver) setTimeout(() => {updateEntityText('wrong', `Incorrect: ${result.incorrectGuesses}`)
                          document.querySelector('#skybox').setAttribute('scale',`-1, ${1/(1+result.incorrectGuesses.length*2)} 1`);
                      },1);
     if(result.wrongGuess) {splash.play();} else {applause.play();}
@@ -39,7 +39,7 @@ function* runGame(round) {
             document.querySelector("#skybox").setAttribute('src', '#beach');}, 1);
     } else if (result.hasLost) {
       updateEntityText('instructions', "You lost. :( Say 'New Game' to play again.");
-      setTimeout(() => {document.querySelector('#ocean').setAttribute('scale',`-1, 1  1`);
+      setTimeout(() => {document.querySelector('#skybox').setAttribute('scale',`-1, 1  1`);
             document.querySelector("#skybox").setAttribute('src', '#ocean');}, 1);
       updateEntityTextGeometry('word', round.word);
     }

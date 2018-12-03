@@ -50,7 +50,8 @@ hangman.prototype.guessLetter = function guessLetter(letter){
     wrongGuess,
     guessesRemaining: this.guessesRemaining,
     hasWon: this.hasWon,
-    hasLost: this.gameOver && !this.hasWon
+    hasLost: this.gameOver && !this.hasWon,
+    gameOver: this.gameOver
   };
 }
   hangman.prototype.getDisplayedWord = function getDisplayedWord(){
